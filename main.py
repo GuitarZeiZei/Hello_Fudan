@@ -34,7 +34,7 @@ class Fudan:
         :param url_login: 登录页，默认服务为空
         """
         self.session = session()
-        self.session.keep_alive = True
+        self.session.keep_alive = False
         self.session.headers['User-Agent'] = self.UA
         self.url_login = url_login
         self.url_code = url_code
@@ -139,118 +139,9 @@ class Zlapp(Fudan):
         检查
         """
         print("◉检测是否已提交")
-#         get_info = self.session.get(
-#             'https://zlapp.fudan.edu.cn/ncov/wap/fudan/get-info',verify=False)
-#         last_info = get_info.json()
-        last_info = {'whether_qk': '1',
-                     'tw': '13',
-                     'sfcxtz': '0',
-                     'sfjcbh': '0',
-                     'sfcxzysx': '0',
-                     'qksm': '',
-                     'sfyyjc': '0',
-                     'jcjgqr': '0',
-                     'remark': '',
-                     'address': '上海市杨浦区五角场街道复旦大学复旦大学北苑学生生活园区',
-                     'geo_api_info': '{"type":"complete","position":{"Q":31.30079155816,"R":121.49683078342099,"lng":121.496831,"lat":31.300792},"location_type":"html5","message":"Get geolocation success.Convert Success.Get address success.","accuracy":40,"isConverted":true,"status":1,"addressComponent":{"citycode":"021","adcode":"310110","businessAreas":[{"name":"江湾","id":"310110","location":{"Q":31.310831,"R":121.49710900000002,"lng":121.497109,"lat":31.310831}},{"name":"曲阳","id":"310109","location":{"Q":31.281201,"R":121.49283200000002,"lng":121.492832,"lat":31.281201}},{"name":"运光","id":"310109","location":{"Q":31.29198,"R":121.493426,"lng":121.493426,"lat":31.29198}}],"neighborhoodType":"科教文化服务;学校;高等院校","neighborhood":"复旦大学","building":"","buildingType":"","street":"武东路","streetNumber":"57号","country":"中国","province":"上海市","city":"","district":"杨浦区","towncode":"310110019000","township":"五角场街道"},"formattedAddress":"上海市杨浦区五角场街道复旦大学复旦大学北苑学生生活园区","roads":[],"crosses":[],"pois":[],"info":"SUCCESS"}',
-                     'area': '上海市 杨浦区',
-                     'province': '上海市',
-                     'city': '上海市',
-                     'sfzx': '1',
-                     'sfjcwhry': '0',
-                     'sfjchbry': '0',
-                     'sfcyglq': '0',
-                     'gllx': '',
-                     'glksrq': '',
-                     'jcbhlx': '',
-                     'jcbhrq': '',
-                     'ismoved': '0',
-                     'bztcyy': '',
-                     'sftjhb': '0',
-                     'sftjwh': '0',
-                     'gwszdd': '',
-                     'sfpcgr': '0',
-                     'jrszss': '',
-                     'glfs': '',
-                     'glgcdd': '',
-                     'glqsrq': '',
-                     'gljsrq': '',
-                     'gzdd': '',
-                     'sfwztl': '0',
-                     'sftztl': '0',
-                     'sffsksfl': '0',
-                     'sfzgn': 1,
-                     'sfjczgfxry': '0',
-                     'sfcyglgcq': '0',
-                     'xs_sfdyz': '1',
-                     'xs_dyzdd': '2',
-                     'xs_dyzdd_text': '上海市杨浦区五角场街道复旦大学复旦大学北苑学生生活园区',
-                     'xs_sfdez': '1',
-                     'xs_dezdd': '2',
-                     'xs_dezdd_text': '上海市杨浦区五角场街道复旦大学复旦大学北苑学生生活园区',
-                     'bztcyyqt': '',
-                     'xs_ymtype': '1',
-                     'xs_sfwcymjz': '0',
-                     'xs_wcymjzdd': '0',
-                     'xs_sfwcymjz_dd': '',
-                     'jzymmc': '',
-                     'jzymifjzj': '0',
-                     'xs_sfdsz': '0',
-                     'xs_dszdd': '0',
-                     'xs_dszdd_text': '',
-                     'xs_sfwcjqz': '1',
-                     'uid': '550750',
-                     'date': '20221208',
-                     'jcjg': '',
-                     'created': 1670436855,
-                     'fxyy': '科研',
-                     'fjsj': '0',
-                     'created_uid': '0',
-                     'sfjcqz': '',
-                     'jcqzrq': '',
-                     'sftjwz': '',
-                     'sfjcwzry': '',
-                     'sfjctzry': '',
-                     'jcwhryfs': '',
-                     'jchbryfs': '',
-                     'xjzd': '',
-                     'szgj': '',
-                     'sfsfbh': '0',
-                     'jhfjrq': '',
-                     'sfqzfy': '0',
-                     'sfqzysfy': '0',
-                     'fhjtgj': '',
-                     'fhjtgjbc': '',
-                     'sftjtz': '0',
-                     'szsqsfybl': '0',
-                     'sfygtjzzfj': '0',
-                     'gtjzzfjsj': '',
-                     'sfsqhzjkk': '0',
-                     'sqhzjkkys': '',
-                     'sfzx_ld': '',
-                     'sdgzdd': '',
-                     'sfzx_fjh': '',
-                     'tzjssfjkyc': '0',
-                     'tzjssfjkyc_qksm': '',
-                     'tzjssfjthb': '0',
-                     'tzjssfjthb_qksm': '',
-                     'tzjssfqz': '0',
-                     'tzjssfqz_qksm': '',
-                     'fhzjxx': '',
-                     'log': '',
-                     'szcs': '',
-                     'tzjssfjtzgfx': '0',
-                     'tzjssfjtzgfx_qksm': '',
-                     'gov_zgfx': 1,
-                     'sjsfcyfbyx': '0',
-                     'fbyxxxsm': '0',
-                     'ip': '20.232.123.27',
-                     'ipwllx': '',
-                     'ipsfxyw': '0',
-                     'fkqssj': '',
-                     'fklb': '',
-                     'sjzxqsy': '',
-                     'id': 45387013}
+        get_info = self.session.get(
+            'https://zlapp.fudan.edu.cn/ncov/wap/fudan/get-info')
+        last_info = get_info.json()
 
         print("◉上一次提交日期为:", last_info["d"]["info"]["date"])
 
@@ -320,17 +211,12 @@ class Zlapp(Fudan):
             print("◉正在识别验证码......")
             code = self.validate_code()
             print("◉验证码为:", code)
-            #import pdb; pdb.set_trace()
-            if(city=="上海市"):
-                area = " ".join((city, district))
-            else:
-                area = " ".join((province, city, district))
             self.last_info.update(
                 {
                     "tw": "13",
                     "province": province,
                     "city": city,
-                    "area": area,
+                    "area": " ".join((province, city, district)),
                     #"sfzx": "1",  # 是否在校
                     #"fxyy": "",  # 返校原因
                     "code": code,
