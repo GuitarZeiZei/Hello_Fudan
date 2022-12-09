@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron:  '0 18 * * *'
+    - cron:  '0 2 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,8 +21,6 @@ jobs:
       
       - name: Install dependencies
         run: |
-          unset http_proxy
-          unset https_proxy
           python -m pip install --upgrade pip
           pip install opencv-python==4.5.4.60
           pip install easyocr pillow numpy
