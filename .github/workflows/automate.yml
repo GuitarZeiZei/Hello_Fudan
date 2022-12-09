@@ -21,12 +21,10 @@ jobs:
       
       - name: Install dependencies
         run: |
+          unset no_proxy
           python -m pip install --upgrade pip
           pip install opencv-python==4.5.4.60
           pip install easyocr pillow numpy
-          pip install cryptography
-          pip install pyOpenSSL
-          pip install certifi
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
       - name: run
